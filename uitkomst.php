@@ -1,4 +1,6 @@
 <?php
+include "php/header.php";
+include "php/navbar.php"; 
 
 $titel = $_POST["titel"];
 $afspraak = $_POST["afspraak"];
@@ -43,8 +45,9 @@ if(empty($begintijd)){
 if(empty($eindtijd)){
     $error=1;
     $where = $where . "eindtijd &nbsp;";
-}
+ 
 
+}
 
 if($error==0){
     echo $titel;
@@ -61,4 +64,7 @@ if($error==0){
 }else{
     echo"er is een fout melding met $where ";
 }
+
+include "php/footer.php";
+
 ?>
