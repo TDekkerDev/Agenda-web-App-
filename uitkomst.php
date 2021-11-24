@@ -39,6 +39,9 @@ if(empty($locatie)){
 if(empty($date)){
     $error=1;
     $where = $where . "date &nbsp;";
+}elseif(time()>$timestamp){
+    echo"Kies een datum die nog niet geweest is";
+
 }
 
 if(empty($begintijd)){
@@ -69,9 +72,9 @@ if($error==0){
     echo"er is een fout melding met $where ";
 }
 
-if(time()>$timestamp){
-    echo"Deze datum is al geweest pak een datum die wel correct is";
-}
+
+
+
 
 
 include "php/footer.php";
