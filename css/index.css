@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap%27');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252a;
+}
+
+li, a, button {
+    font-family: 'Ephesis', cursive;
+    font-weight: bold;
+    font-size: 25px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.nav {
+    list-style: none;
+}
+
+.nav li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav li a:hover {
+    color: lightseagreen;
+}
+
+button {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.6);
+}
