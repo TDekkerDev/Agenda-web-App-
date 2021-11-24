@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-color: #FEF1E6;
 }
-
 li, a, button {
     font-family: 'Coiny', cursive;
     font-weight: bold;
@@ -55,4 +53,38 @@ button {
 
 button:hover {
     background-color: rgba(0, 136, 169, 0.6);
+}
+
+.new_afspraak2 {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.new_afspraak {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    border: solid 5px black;
+    border-radius: 50px;
+    width: 550px;
+}
+
+.vragen{
+    background-color: #ffffff;
+    font-family: 'Coiny', cursive;
+    border: solid 2px black;
+    border-radius: 90px;
+    height: 5px;
+    width: 5px;
+    padding: 10px;
+}
+
+#help {
+    height: 20px;
+    width: 150px;
 }
