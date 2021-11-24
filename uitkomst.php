@@ -12,6 +12,10 @@ $eindtijd = $_POST["time-eind"];
 
 $where = "";
 $error=0;
+$timestamp= strtotime($date);
+
+
+
 
 if(empty($titel)){
     $error=1;
@@ -64,6 +68,11 @@ if($error==0){
 }else{
     echo"er is een fout melding met $where ";
 }
+
+if(time()>$timestamp){
+    echo"Deze datum is al geweest pak een datum die wel correct is";
+}
+
 
 include "php/footer.php";
 
