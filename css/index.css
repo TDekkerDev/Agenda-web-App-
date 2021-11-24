@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap%27');
-
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #24252a;
+    background-color: #FEF1E6;
 }
 
 li, a, button {
-    font-family: 'Ephesis', cursive;
+    font-family: 'Coiny', cursive;
     font-weight: bold;
     font-size: 25px;
-    color: #edf0f1;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -47,7 +46,7 @@ header {
 button {
     margin-left: 20px;
     padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
+    background-color: #90AACB;
     border: none;
     border-radius: 50px;
     cursor: pointer;
