@@ -1,7 +1,6 @@
-<?php
 
-include 'php/header.php';
-include 'php/navbar.php';
-include 'php/footer.php';
+<?php include 'php/header.php';?>
+<?php include 'php/navbar.php'; ?>
 
-?>
+<?php include 'php/footer.php';?>
+
