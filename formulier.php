@@ -23,7 +23,7 @@
         <input type="time" name="time-begin" id="time-begin">  &nbsp; Eindtijd:<input type="time" name="time-eind" id="time-eind"><br>
     </label>
 
-    <input type="submit" value="maak aan">
+    <input type="submit" value="Maak aan">
     
 
 
