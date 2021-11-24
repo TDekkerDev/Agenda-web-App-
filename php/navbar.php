@@ -1,5 +1,5 @@
 <header>
-        <img class="logo" src="media/logo.png" alt="logo">
+        <img class="logo" src="media/logo4.png" alt="logo">
         <ul class="nav">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
