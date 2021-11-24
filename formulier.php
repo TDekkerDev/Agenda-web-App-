@@ -20,7 +20,10 @@
     </label>
 
     <label for="time"> Begintijd:
-        <input type="time" name="time-begin" id="time-begin">  &nbsp; Eindtijd:<input type="time" name="time-eind" id="time-eind">
+        <input type="time" name="time-begin" id="time-begin">  &nbsp; Eindtijd:<input type="time" name="time-eind" id="time-eind"><br>
+    </label>
+
+    <input type="submit" value="maak aan">
     
 
 
