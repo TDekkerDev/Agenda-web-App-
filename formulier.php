@@ -1,5 +1,5 @@
-<?php 
-include "php/header.php"; ?>
+<?php include "php/header.php"; ?>
+<?php include "php/navbar.php"; ?>
 <form action="uitkomst.php" method="POST">
     <h1>Nieuwe Agenda Item</h1>
 
@@ -12,12 +12,15 @@ include "php/header.php"; ?>
     </label>
 
     <label for="locatie">Locatie:
-        <input type="text" name="locatie" id="locatie1">
+        <input type="text" name="locatie" id="locatie1"> <br>
     </label>
 
     <label for="date">Datum van afspraak:
-        <input type="date" name="date" id="datum">
+        <input type="date" name="date" id="datum"> <br> 
     </label>
+
+    <label for="time"> Begintijd:
+        <input type="time" name="time-begin" id="time-begin">  &nbsp; Eindtijd:<input type="time" name="time-eind" id="time-eind">
     
 
 
