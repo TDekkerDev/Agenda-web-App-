@@ -14,37 +14,51 @@ $error=0;
 if(empty($titel)){
     $error=1;
     
-    $where= "titel";
+    $where= "titel &nbsp;";
 }
 
 if(empty($afspraak)){
     $error=1;
-    $where = "afspraak";
+    $where = $where . "afspraak &nbsp;";
 }
 
 
 if(empty($locatie)){
     $error=1;
     
-    $where = "locatie";
+    $where = $where ."locatie &nbsp;";
 }
 
 
 if(empty($date)){
     $error=1;
-    $where = "date";
+    $where = $where . "date &nbsp;";
 }
 
 if(empty($begintijd)){
     $error=1;
-    $where = "begintijd";
+    $where = $where . "begintijd &nbsp;";
 }
 
 if(empty($eindtijd)){
     $error=1;
-    $where = "eindtijd";
+    $where = $where . "eindtijd &nbsp;";
 }
 
 
-if($error==0)
+if($error==0){
+    echo $titel;
+    echo "<br>";
+    echo $afspraak;
+    echo "<br>";
+    echo $locatie;
+    echo "<br>";
+    echo $date;
+    echo "<br>";
+    echo $begintijd;
+    echo "<br>";
+    echo $eindtijd;
+}else{
+    echo"er is een fout melding met $where ";
+}
 ?>
