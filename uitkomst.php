@@ -8,15 +8,43 @@ $begintijd =$_POST["time-begin"];
 $eindtijd = $_POST["time-eind"];
 
 
-
+$where = "";
 $error=0;
-if(empty($title)){
+
+if(empty($titel)){
     $error=1;
-}
-
-if ($error ==0){
-    echo $title;
     
+    $where= "titel";
 }
 
+if(empty($afspraak)){
+    $error=1;
+    $where = "afspraak";
+}
+
+
+if(empty($locatie)){
+    $error=1;
+    
+    $where = "locatie";
+}
+
+
+if(empty($date)){
+    $error=1;
+    $where = "date";
+}
+
+if(empty($begintijd)){
+    $error=1;
+    $where = "begintijd";
+}
+
+if(empty($eindtijd)){
+    $error=1;
+    $where = "eindtijd";
+}
+
+
+if($error==0)
 ?>
