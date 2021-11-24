@@ -1,5 +1,5 @@
 <?php 
-include "../php/header.php"; ?>
+include "php/header.php"; ?>
 <form action="uitkomst.php" method="POST">
     <h1>Nieuwe Agenda Item</h1>
 
@@ -31,4 +31,4 @@ include "../php/header.php"; ?>
 
 
 <?php 
-include "../php/footer.php"; ?>
+include "php/footer.php"; ?>
