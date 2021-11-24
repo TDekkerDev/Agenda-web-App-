@@ -1,7 +1,7 @@
 <?php include "php/header.php"; ?>
 <?php include "php/navbar.php"; ?>
 <div class=new_afspraak2>
-<div class=new_afspraak>
+<div class="new_afspraak">
     <form action="uitkomst.php" method="POST">
         <h1>Nieuwe Agenda Item</h1>
 

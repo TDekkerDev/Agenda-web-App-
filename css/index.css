@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
-* {
+body {
     margin: 0;
     padding: 0;
     background-color: #FEF1E6;
@@ -74,6 +74,7 @@ button:hover {
     width: 550px;
 }
 
+
 .vragen{
     background-color: #ffffff;
     font-family: 'Coiny', cursive;
@@ -85,6 +86,12 @@ button:hover {
 }
 
 #help {
-    height: 20px;
+    background-color: #90AACB;
+    margin-bottom: 20px;
+    height: 40px;
     width: 150px;
+}
+
+#help:hover {
+    background-color: rgba(0, 136, 169, 0.6);
 }
