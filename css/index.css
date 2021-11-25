@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap%27);
 body {
     margin: 0;
     padding: 0;
@@ -32,7 +32,7 @@ main {
 
 .nav {
     list-style: none;
-    
+
 }
 
 .nav .navi {
@@ -64,7 +64,7 @@ button:hover {
 
 .new_afspraak2 {
     display: flex;
-    
+
     padding: 20px;
     border-radius: 50px;
     margin-top: 20px;
@@ -123,7 +123,7 @@ button:hover {
 
 #balk{
     display: flex;
-    
+
 }
 
 .dagen{
