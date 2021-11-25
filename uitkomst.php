@@ -2,6 +2,8 @@
 include "php/header.php";
 include "php/navbar.php"; 
 
+
+
 $titel = $_POST["titel"];
 $afspraak = $_POST["afspraak"];
 $locatie = $_POST["locatie"];
@@ -18,40 +20,38 @@ $timestamp= strtotime($date);
 
 
 if(empty($titel)){
-    $error=1;
     
-    $where= "titel &nbsp;";
+    header('Location:formulier.php?error=U moet Titel invoeren');
 }
 
 if(empty($afspraak)){
-    $error=1;
-    $where = $where . "afspraak &nbsp;";
+    
+    header('Location:formulier.php?error=U moet de omschijving van de afspraak invoeren');
 }
 
 
 if(empty($locatie)){
-    $error=1;
     
-    $where = $where ."locatie &nbsp;";
+    header('Location:formulier.php?error=U moet locatie invoeren');
 }
 
 
 if(empty($date)){
-    $error=1;
-    $where = $where . "date &nbsp;";
+    
+    header('Location:formulier.php?error=U moet de datum invoeren');
 }elseif(time()>$timestamp){
-    echo"Kies een datum die nog niet geweest is";
+    header('Location:formulier.php?error=U moet een datum kiezen die nog niet is geweest');
 
 }
 
 if(empty($begintijd)){
-    $error=1;
-    $where = $where . "begintijd &nbsp;";
+    
+    header('Location:formulier.php?error=U moet de begintijd invoeren');
 }
 
 if(empty($eindtijd)){
-    $error=1;
-    $where = $where . "eindtijd &nbsp;";
+    
+    header('Location:formulier.php?error=U moet de eindtijd invoeren');
  
 
 }
@@ -68,10 +68,7 @@ if($error==0){
     echo $begintijd;
     echo "<br>";
     echo $eindtijd;
-}else{
-    echo"er is een fout melding met $where ";
 }
-
 
 
 
