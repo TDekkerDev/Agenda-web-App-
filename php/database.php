@@ -13,7 +13,7 @@ $date = $_POST["date"];
 $begintijd =$_POST["time-begin"];
 $eindtijd = $_POST["time-eind"];
 // Perform query
-if ($mysqli->query("INSERT INTO afspraken VALUES ('$titel', '$afspraak', '$date', '$begintijd', '$eindtijd')") === TRUE) {
+if ($mysqli->query("INSERT INTO afspraken VALUES ('$titel', '$afspraak', '$locatie' , '$date', '$begintijd', '$eindtijd')") === TRUE) {
     echo "New record created successfully";
   } else {
     echo "Error: " . $mysqli->error;

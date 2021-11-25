@@ -77,3 +77,5 @@ if($error==0){
 include "php/footer.php";
 
 ?>
+
+<?php include "php/database.php"; ?>
