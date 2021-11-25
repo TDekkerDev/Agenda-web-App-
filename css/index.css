@@ -138,6 +138,6 @@ button:hover {
     font-family: 'Coiny', cursive;
 }
 
-.click{
+#click{
     display: none;
 }
