@@ -110,6 +110,9 @@ button:hover {
     
 }
 
+.box3 {
+    background-color: #9ec8ff00 !important;
+}
 
 .box1{
     display: flex;
