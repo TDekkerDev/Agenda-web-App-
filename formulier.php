@@ -8,8 +8,7 @@ if (!empty($_GET)) {
 }
 
 ?>
-<main>
-    <div id="balk">
+<div id="balk">
             <li class="dagen">maandag</li>
             <li class="dagen">dinsdag</li>
             <li class="dagen">woensdag</li>
@@ -17,7 +16,9 @@ if (!empty($_GET)) {
             <li class="dagen">vrijdag</li>
             <li class="dagen">zaterdag</li>
             <li class="dagen">zondag</li>
-    </div>
+</div>
+<main>
+    
     <div class=new_afspraak2>
      
         <div class="new_afspraak">
