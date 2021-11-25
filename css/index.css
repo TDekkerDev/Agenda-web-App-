@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: white;
 }
-li, a, button {
+.navi, a, button {
     font-family: 'Coiny', cursive;
     font-weight: bold;
     font-size: 25px;
@@ -35,16 +35,16 @@ main {
     
 }
 
-.nav li {
+.nav .navi {
     display: inline-block;
     padding: 0px 20px;
 }
 
-.nav li a {
+.nav .navi a {
     transition: all 0.3s ease 0s;
 }
 
-.nav li a:hover {
+.nav .navi a:hover {
     color: lightseagreen;
 }
 
