@@ -107,19 +107,20 @@ button:hover {
 #agenda {
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
+    
 }
 
 
 .box1{
-    background-color: lightskyblue;
     display: flex;
-    border: solid 4px  lightskyblue;
+    border: 4px solid lightskyblue;
+    height: 80px;
     width: 150px;
-    margin: 30px;
-
+    justify-content: center;
+    background-color: lightskyblue;
+    margin: 25px;
+    font-family: 'Coiny', cursive;
 }
-
 
 #balk{
     display: flex;
@@ -133,7 +134,7 @@ button:hover {
     width: 150px;
     justify-content: center;
     background-color: lightskyblue;
-    margin: 30px;
-    border-radius: 20px;
+    margin: 25px;
     font-family: 'Coiny', cursive;
 }
+
