@@ -21,6 +21,9 @@ if (!empty($_GET)) {
     
     
     <div id="agenda">
+        <div class="box1 box3"></div>
+        <div class="box1 box3"></div>
+        <div class="box1 box3"></div>
         <div class="box1"></div>
         <div class="box1"></div>
         <div class="box1"></div>
@@ -51,9 +54,10 @@ if (!empty($_GET)) {
         <div class="box1"></div>
         <div class="box1"></div>
         <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
+        <div class="box1 box3"></div>
+        <div class="box1 box3"></div>
+    
+
 
         
         
