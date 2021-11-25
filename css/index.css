@@ -78,14 +78,13 @@ button:hover {
     align-items: center;
     height: 360px;
     border: solid 5px lightskyblue;
-    border-radius: 45px;
-    width: 600px;
+    
+    width: 39.2%;
     position: absolute;
-    top: 243px;
+    top: 31.7%;
     left: 20px;
     z-index: 1;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
+    
 
 }
 
