@@ -19,55 +19,6 @@ if (!empty($_GET)) {
             <li class="dagen">zondag</li>
 </div>
 
->
-
-<main>
-    
-    
-    <div id="agenda">
-        <div class="box1 box3"></div>
-        <div class="box1 box3"></div>
-        <div class="box1 box3"></div>
-        <div class="box1"></div>
-        <div class="box1" onclick="show()"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1"></div>
-        <div class="box1 box3"></div>
-        <div class="box1 box3"></div>
-    
-
-
-        
-        
-    </div>
-</main>
 <div id="click">
     <div class=new_afspraak2>
      
@@ -105,6 +56,54 @@ if (!empty($_GET)) {
         </div>
     </div>
 </div>
+
+<main>
+    
+    
+    <div id="agenda">
+        <div class="box1 box3"onclick="show()"></div>
+        <div class="box1 box3"onclick="show()"></div>
+        <div class="box1 box3"onclick="show()"></div>
+        <div class="box1" onclick="show()"></div>
+        <div class="box1" onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1"onclick="show()"></div>
+        <div class="box1 box3"></div>
+        
+
+
+        
+        
+    </div>
+</main>
+
 <script>
 function show(){
     

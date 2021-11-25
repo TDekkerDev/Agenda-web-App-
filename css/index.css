@@ -65,9 +65,9 @@ button:hover {
 .new_afspraak2 {
     display: flex;
 
-    padding: 20px;
-    border-radius: 50px;
-    margin-top: 20px;
+    
+    border-radius: 10px;
+    
 }
 
 .new_afspraak {
@@ -75,10 +75,17 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 360px;
     border: solid 5px lightskyblue;
-    border-radius: 50px;
+    border-radius: 45px;
     width: 600px;
+    position: absolute;
+    top: 243px;
+    left: 20px;
+    z-index: 1;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
 }
 
 
