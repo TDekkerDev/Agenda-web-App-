@@ -2,7 +2,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: white;
+    width: 100%;
+    background-color: #c7b9b9;
+
 }
 
 .navi, a, button {
@@ -18,7 +20,6 @@ header {
     justify-content: flex-end;
     align-items: center;
     padding: 30px 10%;
-    background-color: #c7b9b9;
 }
 
 main {
@@ -151,4 +152,17 @@ button:hover {
 
 #click{
     display: none;
+}
+
+.container_box{
+    font-size: 200%;
+    padding: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr,td {
+    width: 14.28571428571429%;
+    background-color: lightskyblue;
 }
