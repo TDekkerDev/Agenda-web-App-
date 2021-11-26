@@ -8,7 +8,6 @@ if (!empty($_GET)) {
 }
 
 ?>
-<script defer src="javascript/index.js"></script>
 <div id="balk">
             <li class="dagen">maandag</li>
             <li class="dagen">dinsdag</li>
@@ -129,21 +128,8 @@ if (!empty($_GET)) {
         <div class="box1"onclick="show()"></div>
         <div class="box1"onclick="show()"></div>
         <div class="box1"onclick="show()"></div>
-        <div class="box1 box3"></div>
-        
-
-
-        
-        
+        <div class="box1 box3"></div> 
     </div>
 </main>
-
-<script>
-function show(){
-    
-    document.getElementById("click").style.display = "block";
-    
-}
-</script>
 <?php 
 include "php/footer.php"; ?>
