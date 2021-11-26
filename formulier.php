@@ -8,7 +8,7 @@ if (!empty($_GET)) {
 }
 
 ?>
-<div id="balk">
+<!-- <div id="balk">
             <li class="dagen">maandag</li>
             <li class="dagen">dinsdag</li>
             <li class="dagen">woensdag</li>
@@ -16,7 +16,7 @@ if (!empty($_GET)) {
             <li class="dagen">vrijdag</li>
             <li class="dagen">zaterdag</li>
             <li class="dagen">zondag</li>
-</div>
+</div> -->
 
 <div id="click">
     <div class=new_afspraak2>
@@ -55,7 +55,9 @@ if (!empty($_GET)) {
         </div>
     </div>
 </div>
+<div class="container_box">
 <?php
+
 
     $maand = 11;
     $jaar=2021;
@@ -68,29 +70,29 @@ if (!empty($_GET)) {
     $cel = 0;
 
     echo"<table>";
-    echo"<tr><th>ZO</th><th>MA</th><th>DI</th><th>W</th><th>DO</th><th>VR</th><th>ZA</th>";
+    echo"<tr><th>ZONDAG</th><th>MAANDAG</th><th>DINSDAG</th><th>WOENSDAG</th><th>DONDERDAG</th><th>VRIJDAG</th><th>ZATERDAG</th>";
 
     echo"<tr>";
 
     for($i=0; $i< $dag1; $i++){
-        echo"<td> x </td>";
+        echo'<td class="box" onclick="show()"> x </td>';
         $cel++;
     }
 
     for($i=1; $i <= $dagenInMaand; $i++){
-        echo "<td> $i </td>";
+        echo '<td onclick="show()">' . $i . '</td>';
         $cel++;
         if($cel ==7){
-            echo "</tr><tr>";
+            echo '</tr><tr onclick="show()">';
             $cel=0;
         }
     }
 
     echo"</table>";
 ?>
+</div>
 
-
-<main>
+<!-- <main>
     
     
     <div id="agenda">
@@ -130,6 +132,6 @@ if (!empty($_GET)) {
         <div class="box1"onclick="show()"></div>
         <div class="box1 box3"></div> 
     </div>
-</main>
+</main> -->
 <?php 
 include "php/footer.php"; ?>
