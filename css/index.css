@@ -82,7 +82,7 @@ button:hover {
     
     width: 39.2%;
     position: absolute;
-    top: 31.7%;
+    top: 56.9%;
     left: 20px;
     z-index: 1;
     
@@ -164,5 +164,6 @@ button:hover {
 
 tr,td {
     width: 14.28571428571429%;
-    background-color: lightskyblue;
+    text-align: center;
+    border: black 1px solid;
 }
