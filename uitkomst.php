@@ -78,4 +78,4 @@ include "php/footer.php";
 
 ?>
 
-<?php include "php/database.php"; ?>
+<?php include "php/databasesend.php"; ?>
