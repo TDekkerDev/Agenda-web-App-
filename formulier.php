@@ -59,8 +59,8 @@ if (!empty($_GET)) {
 <?php
 
 
-    $maand = 11;
-    $jaar=2021;
+    $maand = date('m');
+    $jaar= date('y');
 
     $timestamp = mktime(0,0,0,$maand,1,$jaar);
 
