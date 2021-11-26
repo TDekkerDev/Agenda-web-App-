@@ -56,6 +56,40 @@ if (!empty($_GET)) {
         </div>
     </div>
 </div>
+<?php
+
+    $maand = 11;
+    $jaar=2021;
+
+    $timestamp = mktime(0,0,0,$maand,1,$jaar);
+
+    $dag1= date("w", $timestamp);
+    $dagenInMaand = date("t", $timestamp);
+
+    $cel = 0;
+
+    echo"<table>";
+    echo"<tr><th>ZO</th><th>MA</th><th>DI</th><th>W</th><th>DO</th><th>VR</th><th>ZA</th>";
+
+    echo"<tr>";
+
+    for($i=0; $i< $dag1; $i++){
+        echo"<td> x </td>";
+        $cel++;
+    }
+
+    for($i=1; $i <= $dagenInMaand; $i++){
+        echo "<td> $i </td>";
+        $cel++;
+        if($cel ==7){
+            echo "</tr><tr>";
+            $cel=0;
+        }
+    }
+
+    echo"</table>";
+?>
+
 
 <main>
     
