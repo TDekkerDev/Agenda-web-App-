@@ -1,3 +1,13 @@
+<table>
+  <tbody>
+  <tr>
+<th>titel</th>
+<th>afspraak</th>
+<th>locatie</th>
+<th>date</th>
+<th>time-begin</th>
+<th>time-eind</th>
+</tr>
 <?php
 $mysqli = new mysqli("localhost","root","","agenda");
 
@@ -17,3 +27,5 @@ echo "</table>";
 } else { echo "0 results"; }
 $mysqli->close();
 ?>
+  </tbody>
+</table>
