@@ -67,18 +67,18 @@ button:hover {
 .new_afspraak2 {
     display: flex;
 
-    
+    background-color: #c7b9b9;
     border-radius: 10px;
     
 }
 
 .new_afspraak {
-    background-color: lightskyblue;
+    background-color: #c7b9b9;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 360px;
-    border: solid 5px lightskyblue;
+    border: solid 2px black;
     
     width: 39.2%;
     position: absolute;
@@ -125,12 +125,12 @@ button:hover {
 
 .box1{
     display: flex;
-    border: 4px solid lightskyblue;
+    border: 4px solid black;
     height: 80px;
     width: 11%;
     margin: 1.3%;
     justify-content: center;
-    background-color: lightskyblue;
+    background-color: #c7b9b9;
     font-family: 'Coiny', cursive;
 }
 

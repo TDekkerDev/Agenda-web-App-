@@ -134,4 +134,5 @@ if (!empty($_GET)) {
     </div>
 </main> -->
 <?php 
-include "php/footer.php"; ?>
+include "php/footer.php"; 
+?>
