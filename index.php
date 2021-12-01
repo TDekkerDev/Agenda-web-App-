@@ -1,5 +1,6 @@
 <?php include "php/header.php"; ?>
 <?php include "php/navbar.php"; ?>
+<?php include "2/niethierin.php"; ?>
 <?php 
 
 if (!empty($_GET)) {
