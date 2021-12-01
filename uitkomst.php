@@ -17,6 +17,7 @@ $error=0;
 $timestamp= strtotime($date);
 
 
+  
 function save($titel,$afspraak,$locatie,$date,$begintijd,$eindtijd){
 
     $file_path ="data/saved_item.json";
@@ -37,16 +38,32 @@ function save($titel,$afspraak,$locatie,$date,$begintijd,$eindtijd){
         "eindtijd" => $eindtijd
     ];
     $saved_items[]= $new_item;
+    $datums = [];
+    foreach($saved_items as $item){
+        $datums[] = $item["datum"] . $item["begintijd"];
 
+    }
+    array_multisort($datums,$saved_items);
     $saved_items_json = json_encode($saved_items);
     file_put_contents($file_path,$saved_items_json);
-
-    print_r($saved_items_json);
     
+    foreach($saved_items as $item){
+        echo "<div class=save>";
+        echo   "<br>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"];
+        echo "</div>";
+
+    }
+   
+  
     return $saved_items;
     
     
 }
+
+
+
+
+
 
 
 if(empty($titel)){
