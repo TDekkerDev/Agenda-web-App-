@@ -50,9 +50,9 @@ function save($titel,$afspraak,$locatie,$date,$begintijd,$eindtijd){
     file_put_contents($file_path,$saved_items_json);
     
     foreach($saved_items as $item){
-        echo "<div class=save>";
+        
         echo   "<br>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"];
-        echo "</div>";
+        
 
     }
    
