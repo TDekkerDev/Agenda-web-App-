@@ -9,6 +9,8 @@
 <th>time-eind</th>
 </tr>
 <?php
+/*
+
 $mysqli = new mysqli("localhost","root","","agenda");
 
 // Check connection
@@ -26,6 +28,7 @@ echo "<tr><td>" . $row["titel"]. "</td><td>" . $row["afspraak"] . "</td><td>" . 
 echo "</table>";
 } else { echo "0 results"; }
 $mysqli->close();
+*/
 ?>
   </tbody>
 </table>

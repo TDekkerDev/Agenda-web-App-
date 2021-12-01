@@ -1,4 +1,6 @@
 <?php
+/*
+
 $mysqli = new mysqli("localhost","root","","agenda");
 
 // Check connection
@@ -19,6 +21,7 @@ if ($mysqli->query("INSERT INTO afspraken VALUES ('$titel', '$afspraak', '$locat
     echo "Error: " . $mysqli->error;
   }
 $mysqli -> close();
+*/
 
 
 ?> 
