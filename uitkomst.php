@@ -1,8 +1,8 @@
-<?php include "2/niethierin.php"; ?>
+
 <?php
 include "php/header.php";
 include "php/navbar.php";
-include "2/niethierin.php";
+
 
 
 
@@ -39,24 +39,31 @@ function save($titel,$afspraak,$locatie,$date,$begintijd,$eindtijd){
         "begintijd" => $begintijd,
         "eindtijd" => $eindtijd
     ];
+
     $saved_items[]= $new_item;
     $datums = [];
     foreach($saved_items as $item){
         $datums[] = $item["datum"] . $item["begintijd"];
     }
+
     array_multisort($datums,$saved_items);
-    
     $saved_items_json = json_encode($saved_items);
-    
-    
     file_put_contents($file_path,$saved_items_json);
-    if ($new_item == $saved_items){
-        echo 'wacht';
-    }else {
-        echo " nu neit meer";
-    }
     
 
+    foreach($saved_items as $item){
+    
+        $result = array_search($date, $item);
+
+        if($result){
+            $result = array_search($begintijd, $item);
+            echo "<br>agenda confict";
+
+        }
+        
+    }
+
+    
     foreach($saved_items as $item){
      
         echo   "<br>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"] . "<br>";
