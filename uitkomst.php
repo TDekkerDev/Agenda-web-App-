@@ -2,38 +2,33 @@
 <?php
 include "php/header.php";
 include "php/navbar.php";
+?>
+
+<?php
 
 
 
 
-$titel = $_POST["titel"];
-$afspraak = $_POST["afspraak"];
+
+
+$titel=$_POST["titel"];
+$onderwerp =$_POST["afspraak"];
 $locatie = $_POST["locatie"];
 $date = $_POST["date"];
 $begintijd =$_POST["time-begin"];
 $eindtijd = $_POST["time-eind"];
 
-
-$where = "";
-$error=0;
 $timestamp= strtotime($date);
 
 
-  
-function save($titel,$afspraak,$locatie,$date,$begintijd,$eindtijd){
 
-    $file_path ="data/saved_item.json";
-    if (file_exists($file_path)){
-        $saved_items = file_get_contents($file_path);
-        $saved_items = json_decode($saved_items,true);
-    }else{
-        $saved_items = [];
 
-    }
+function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
 
+    
     $new_item = [
         "title" => $titel,
-        "afspraak" => $afspraak,
+        "afspraak" => $onderwerp,
         "locatie" => $locatie,
         "datum" => $date,
         "begintijd" => $begintijd,
@@ -47,21 +42,28 @@ function save($titel,$afspraak,$locatie,$date,$begintijd,$eindtijd){
     }
 
     array_multisort($datums,$saved_items);
+    
+    overlapend($saved_items,$new_item);
+    save();
+}
+
+  
+function save(){
+    
+
+    $file_path ="data/saved_item.json";
+    if (file_exists($file_path)){
+        $saved_items = file_get_contents($file_path);
+        $saved_items = json_decode($saved_items,true);
+    }else{
+        $saved_items = [];
+
+    }
+
     $saved_items_json = json_encode($saved_items);
     file_put_contents($file_path,$saved_items_json);
+
     
-
-    foreach($saved_items as $item){
-    
-        $result = array_search($date, $item);
-
-        if($result){
-            $result = array_search($begintijd, $item);
-            echo "<br>agenda confict";
-
-        }
-        
-    }
 
     
     foreach($saved_items as $item){
@@ -70,15 +72,36 @@ function save($titel,$afspraak,$locatie,$date,$begintijd,$eindtijd){
         
 
     }
-   
-  
+    
+    
     return $saved_items;
     
     
 }
 
+function overlappendtijd($new_item,$saved_items){
+    if($new_item["begintijd"] >= $saved_items["begintijd"]&& $new_item["begintijd"] <= $saved_items["eindtijd"]
+    || $new_item["eindtijd"] >= $saved_items["begintijd"] && $new_item["eindtijd"] <= $saved_items["eindtijd"]){
+        echo"Dit kan niet";
+    }
+}
 
 
+function overlapend($saved_items,$new_item){
+$overlappend= false;
+    foreach($saved_items as $item){
+        if($new_item["datum"]==[$item["datum"]]){
+            $overlappend = overlappendtijd($new_item,$saved_items);
+            if($overlappend){
+                break;
+            }
+            
+            
+        }
+        
+    }   
+    if(!$overlappend) save($new_item);
+}
 
 
 
@@ -88,7 +111,7 @@ if(empty($titel)){
     header('Location:index.php?error=U moet Titel invoeren');
 }
 
-if(empty($afspraak)){
+if(empty($onderwerp)){
     
     header('Location:index.php?error=U moet de omschijving van de afspraak invoeren');
 }
@@ -98,15 +121,15 @@ if(empty($locatie)){
     
     header('Location:index.php?error=U moet locatie invoeren');
 }
-
-
+    
 if(empty($date)){
     
     header('Location:index.php?error=U moet de datum invoeren');
+
 }elseif(time()>$timestamp){
     header('Location:index.php?error=U moet een datum kiezen die nog niet is geweest');
 
-}
+} 
 
 if(empty($begintijd)){
     
@@ -120,10 +143,23 @@ if(empty($eindtijd)){
 
 }
 
-if($error==0){
+
+echo display();
+
+function display(){
+    $titel = $_POST["titel"];
+    $onderwerp = $_POST["afspraak"];
+    $locatie = $_POST["locatie"];
+    $date = $_POST["date"];
+    $begintijd =$_POST["time-begin"];
+    $eindtijd = $_POST["time-eind"];
+    
+    
+    
+    
     echo $titel;
     echo "<br>";
-    echo $afspraak;
+    echo $onderwerp;
     echo "<br>";
     echo $locatie;
     echo "<br>";
@@ -134,8 +170,12 @@ if($error==0){
     echo $eindtijd;
     echo "<br>";
     echo"U eerder gemaakt afspraken<br>";
-    save($titel,$afspraak,$locatie,$date,$begintijd,$eindtijd);
-}
+    
+    newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd);
+    
+    
+    
+};
 
 
 
@@ -145,4 +185,4 @@ include "php/footer.php";
 
 ?>
 
-<?php include "php/databasesend.php"; ?>
+<?php include "php/databasesend.php"; ?> 
