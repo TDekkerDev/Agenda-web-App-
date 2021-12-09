@@ -2,7 +2,6 @@
 <?php
 include "php/header.php";
 include "php/navbar.php";
-include "2/niethierin.php";
 
 
 
