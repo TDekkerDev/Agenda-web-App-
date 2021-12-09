@@ -1,6 +1,5 @@
 <?php include "php/header.php"; ?>
 <?php include "php/navbar.php"; ?>
-<?php include "2/niethierin.php"; ?>
     <script language="JavaScript">
         <!--hide
         var password;
