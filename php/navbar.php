@@ -1,7 +1,7 @@
 <header>
         <img class="logo" src="media/logo4.png" alt="logo">
         <div id="container">
-        <form action="hello.php" method="POST">
+        <form action="zoek.php" method="POST">
             <input id="zoeken"type="text" name="zoeken">
             <select id="zoekenkeuzen" name="zoekenkeuzen">
             <option value="titel">titel</option>
@@ -9,7 +9,7 @@
             <option value="locatie">locatie</option>
             <input id=submitzoek type="submit" value="zoeken...">
             </select>
-            </form>
+        </form>
         </div>
 
         <img onclick="searchbar()" src="media/zoeken.png" alt="zoeken" id="zoekenopen">
