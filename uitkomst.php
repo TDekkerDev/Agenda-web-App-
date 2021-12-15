@@ -37,18 +37,16 @@ function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
 
     $saved_items=getcontent();
     
-    if(!overlappendDatum($saved_items,$new_item)){
-        save($new_item);
-    }else{
+    if(overlappendDatum($saved_items,$new_item)){
+        
         echo"U Kunt geen afspraken die in elkaar lopen opslaan<br>";
         foreach($saved_items as $item){
      
             echo   "<br>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"] . "<br>";
-            
-    
+
         }
-
-
+    }else{
+        save($new_item);
     }
     
     
@@ -97,22 +95,7 @@ function save($new_item){
     
 }
 
-// function overlappendtijd($new_item,$saved_items){
-//     $timenb = explode(":",$new_item["begintijd"]);
-//     $timene = explode(":",$new_item["eindtijd"]);
-//     $timesb = explode(":",$saved_items["begintijd"]);
-//     $timese = explode(":",$saved_items["eindtijd"]);
 
-
-//     print_r($$saved_items);
-//     /*echo "overlappendtijd uur" .$time1[0];
-//     echo "overlappendtijd minuten" .$time1[1];*/
-
-//     if($timesb[0] < $timenb[0] && $timenb[0]< $timese[0]){
-//         echo"help";
-        
-//     }   
-// }
 
 
 function overlappendDatum($saved_items,$new_item){
@@ -125,17 +108,18 @@ function overlappendDatum($saved_items,$new_item){
         $bb=$item["datum"] ." " . $item["begintijd"]; 
         $be=$item["datum"] ." " . $item["eindtijd"];
         if($nb >= $bb && $nb <= $be){
-            return false;
+            return true;
         }
+        
         if($ne >= $bb && $ne <= $be){
-            return false;
+            return true;
         }
         if($nb<$bb && $ne>$be){
-            return false;
+            return true;
         }
         
     } 
-    return true;
+    return false;
 }
 
 
@@ -211,13 +195,6 @@ function display(){
     
     
 };
+include "php/footer.php";?>
 
-
-
-
-
-include "php/footer.php";
-
-?>
-
-<?php include "php/databasesend.php"; ?> 
+<?php include "php/databasesend.php";?> 
