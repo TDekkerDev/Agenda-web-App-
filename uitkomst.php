@@ -35,13 +35,22 @@ function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
         "eindtijd" => $eindtijd
     ];
 
-    $saved_items[]= $new_item;
-    $datums = [];
-    foreach($saved_items as $item){
-        $datums[] = $item["datum"] . $item["begintijd"];
-    }
+    $saved_items=getcontent();
+    
+    if(!overlappendDatum($saved_items,$new_item)){
+        save($new_item);
+    }else{
+        echo"U Kunt geen afspraken die in elkaar lopen opslaan<br>";
+        foreach($saved_items as $item){
+     
+            echo   "<br>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"] . "<br>";
+            
+    
+        }
 
-    array_multisort($datums,$saved_items);
+
+    }
+    
     
     overlapend($saved_items,$new_item);
     save();
@@ -51,17 +60,35 @@ function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
 function save(){
     
 
+}
+
+ function getcontent(){ 
     $file_path ="data/saved_item.json";
-    if (file_exists($file_path)){
-        $saved_items = file_get_contents($file_path);
-        $saved_items = json_decode($saved_items,true);
-    }else{
-        $saved_items = [];
+        if (file_exists($file_path)){
+            $saved_items = file_get_contents($file_path);
+            $saved_items = json_decode($saved_items,true);
+        }else{
+            $saved_items = [];
 
     }
+    return $saved_items;
+}
+function save($new_item){
+    
+    $saved_items =getcontent();
+    $saved_items[]= $new_item;
+    $datums = [];
+    foreach($saved_items as $item){
+        $datums[] = $item["datum"] . $item["begintijd"];
+    }
 
+    array_multisort($datums,$saved_items);
+
+    $file_path ="data/saved_item.json";
     $saved_items_json = json_encode($saved_items);
     file_put_contents($file_path,$saved_items_json);
+    
+
 
     
 
@@ -73,34 +100,50 @@ function save(){
 
     }
     
-    
-    return $saved_items;
+ 
     
     
 }
 
-function overlappendtijd($new_item,$saved_items){
-    if($new_item["begintijd"] >= $saved_items["begintijd"]&& $new_item["begintijd"] <= $saved_items["eindtijd"]
-    || $new_item["eindtijd"] >= $saved_items["begintijd"] && $new_item["eindtijd"] <= $saved_items["eindtijd"]){
-        echo"Dit kan niet";
-    }
-}
+// function overlappendtijd($new_item,$saved_items){
+//     $timenb = explode(":",$new_item["begintijd"]);
+//     $timene = explode(":",$new_item["eindtijd"]);
+//     $timesb = explode(":",$saved_items["begintijd"]);
+//     $timese = explode(":",$saved_items["eindtijd"]);
 
 
-function overlapend($saved_items,$new_item){
-$overlappend= false;
+//     print_r($$saved_items);
+//     /*echo "overlappendtijd uur" .$time1[0];
+//     echo "overlappendtijd minuten" .$time1[1];*/
+
+//     if($timesb[0] < $timenb[0] && $timenb[0]< $timese[0]){
+//         echo"help";
+        
+//     }   
+// }
+
+
+function overlappendDatum($saved_items,$new_item){
+    
+
+
+    $nb=$new_item["datum"] . " " . $new_item["begintijd"];
+    $ne=$new_item["datum"] . " " . $new_item["eindtijd"];
     foreach($saved_items as $item){
-        if($new_item["datum"]==[$item["datum"]]){
-            $overlappend = overlappendtijd($new_item,$saved_items);
-            if($overlappend){
-                break;
-            }
-            
-            
+        $bb=$item["datum"] ." " . $item["begintijd"]; 
+        $be=$item["datum"] ." " . $item["eindtijd"];
+        if($nb >= $bb && $nb <= $be){
+            return false;
+        }
+        if($ne >= $bb && $ne <= $be){
+            return false;
+        }
+        if($nb<$bb && $ne>$be){
+            return false;
         }
         
-    }   
-    if(!$overlappend) save($new_item);
+    } 
+    return true;
 }
 
 
