@@ -48,17 +48,10 @@ function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
     }else{
         save($new_item);
     }
-    
-    
-    overlapend($saved_items,$new_item);
-    save();
 }
 
   
-function save(){
-    
 
-}
 
 function getcontent(){ 
     $file_path ="data/saved_item.json";
