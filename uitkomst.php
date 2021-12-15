@@ -44,11 +44,12 @@ function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
     array_multisort($datums,$saved_items);
     
     overlapend($saved_items,$new_item);
-    save($new_item);
+    save();
 }
 
   
-function save($new_item){
+function save(){
+    
 
     $file_path ="data/saved_item.json";
     if (file_exists($file_path)){
@@ -58,9 +59,6 @@ function save($new_item){
         $saved_items = [];
 
     }
-    $saved_items[] = $new_item;
-    
-
 
     $saved_items_json = json_encode($saved_items);
     file_put_contents($file_path,$saved_items_json);
@@ -146,7 +144,7 @@ if(empty($eindtijd)){
 }
 
 
-display();
+echo display();
 
 function display(){
     $titel = $_POST["titel"];
