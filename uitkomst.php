@@ -50,6 +50,14 @@ function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
     }
     
     
+    overlapend($saved_items,$new_item);
+    save();
+}
+
+  
+function save(){
+    
+
 }
 
 function getcontent(){ 
@@ -162,7 +170,7 @@ if(empty($eindtijd)){
 }
 
 
-display();
+echo display();
 
 function display(){
     $titel = $_POST["titel"];

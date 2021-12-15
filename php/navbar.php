@@ -1,13 +1,13 @@
 <header>
         <img class="logo" src="media/logo4.png" alt="logo">
         <div id="container">
-        <form action="zoek.php" method="POST">
+        <form action="zoeken.php" method="POST">
             <input id="zoeken"type="text" name="zoeken">
             <select id="zoekenkeuzen" name="zoekenkeuzen">
             <option value="titel">titel</option>
             <option value="datum">datum</option>
             <option value="locatie">locatie</option>
-            <input id=submitzoek type="submit" value="zoeken...">
+            <input id=submitzoek type="submit" value="zoeken">
             </select>
         </form>
         </div>
