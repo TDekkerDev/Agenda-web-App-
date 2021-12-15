@@ -52,15 +52,14 @@ function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
     
 }
 
- function getcontent(){ 
+function getcontent(){ 
     $file_path ="data/saved_item.json";
         if (file_exists($file_path)){
             $saved_items = file_get_contents($file_path);
             $saved_items = json_decode($saved_items,true);
         }else{
             $saved_items = [];
-
-    }
+        }
     return $saved_items;
 }
 function save($new_item){
@@ -187,7 +186,7 @@ function display(){
     echo $begintijd;
     echo "<br>";
     echo $eindtijd;
-    echo "<br>";
+    echo "<br> &nbsp;";
     echo"U eerder gemaakt afspraken<br>";
     
     newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd);
