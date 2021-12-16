@@ -20,6 +20,15 @@
             <li class="navi"><a href="index.php">agenda</a></li>
             <li class="navi"><a href="afspraken.php">Afspraken</a></li>
             <li class="navi"><a href="admin.php">Admin</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Dag/Week/Maand
+                    <i class="fa fa-caret-down"><i>
+                    </button>
+                        <div class="dropdown-content">
+                            <a href="day.php">dag</a>
+                            <a href="week.php">week</a>
+                            <a href="index.php">maand</a>
+                        </div>
+                </div>
         </ul>
-        <a class="button" href="#"><button>Contact</button></a>
     </header>

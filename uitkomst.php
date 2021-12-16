@@ -6,11 +6,6 @@ include "php/navbar.php";
 
 <?php
 
-
-
-
-
-
 $titel=$_POST["titel"];
 $onderwerp =$_POST["afspraak"];
 $locatie = $_POST["locatie"];
@@ -19,10 +14,7 @@ $begintijd =$_POST["time-begin"];
 $eindtijd = $_POST["time-eind"];
 
 $timestamp= strtotime($date);
-
-
-
-
+echo"<div id='grootphp'>";
 function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
 
     
@@ -38,20 +30,19 @@ function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
     $saved_items=getcontent();
     
     if(overlappendDatum($saved_items,$new_item)){
+        echo '<script>alert("U kunt geen afspraken die in elkaar lopen opgeven")</script>';
         
-        echo"U Kunt geen afspraken die in elkaar lopen opslaan<br>";
         foreach($saved_items as $item){
+            
      
-            echo   "<br>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"] . "<br>";
+            
+            echo   "<div class='saveditems'><br>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"] . "<br></div>";
 
         }
     }else{
         save($new_item);
     }
 }
-
-  
-
 
 function getcontent(){ 
     $file_path ="data/saved_item.json";
@@ -63,6 +54,7 @@ function getcontent(){
         }
     return $saved_items;
 }
+
 function save($new_item){
     
     $saved_items =getcontent();
@@ -77,21 +69,14 @@ function save($new_item){
     $file_path ="data/saved_item.json";
     $saved_items_json = json_encode($saved_items);
     file_put_contents($file_path,$saved_items_json);
-    
 
-
-    
-
-    
     foreach($saved_items as $item){
      
-        echo   "<br>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"] . "<br>";
+        echo   "<div class='saveditems'>".$item["title"]  . "<br>". $item["afspraak"]  . "<br>". $item["locatie"] . "<br>" . $item["datum"] . "<br>" . $item["begintijd"]  . "<br>". $item["eindtijd"] . "<br></div>";
         
 
     }
-    
- 
-    
+   
     
 }
 
@@ -100,8 +85,6 @@ function save($new_item){
 
 function overlappendDatum($saved_items,$new_item){
     
-
-
     $nb=$new_item["datum"] . " " . $new_item["begintijd"];
     $ne=$new_item["datum"] . " " . $new_item["eindtijd"];
     foreach($saved_items as $item){
@@ -172,10 +155,7 @@ function display(){
     $date = $_POST["date"];
     $begintijd =$_POST["time-begin"];
     $eindtijd = $_POST["time-eind"];
-    
-    
-    
-    
+    echo"<div class='saveditems'> Uw nieuwe afspraak:<br>";
     echo $titel;
     echo "<br>";
     echo $onderwerp;
@@ -187,14 +167,12 @@ function display(){
     echo $begintijd;
     echo "<br>";
     echo $eindtijd;
-    echo "<br> &nbsp;";
-    echo"U eerder gemaakt afspraken<br>";
+    echo "</div>";
+    
     
     newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd);
-    
-    
-    
 };
+echo"</div>";
 include "php/footer.php";?>
 
 <?php include "php/databasesend.php";?> 
