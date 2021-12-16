@@ -1,5 +1,7 @@
 <header>
+        <a class="logo" href="index.php">
         <img class="logo" src="media/logo4.png" alt="logo">
+        </a>
         <div id="container">
         <form action="zoeken.php" method="POST">
             <input id="zoeken"type="text" name="zoeken">
