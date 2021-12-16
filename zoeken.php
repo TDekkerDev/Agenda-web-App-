@@ -3,32 +3,46 @@
 <?php
 $zoeken_naam = $_POST["zoeken"];
 $zoeken_term = $_POST["zoekenkeuzen"];
-$saved_items=getcontent();
-function getcontent(){ 
+function load(){ 
     $file_path ="data/saved_item.json";
         if (file_exists($file_path)){
             $saved_items = file_get_contents($file_path);
             $saved_items = json_decode($saved_items,true);
         }else{
             $saved_items = [];
-
-    }
+        }
     return $saved_items;
+}
+$file_path = "data/saved_items.json";
+$saved_items = load($file_path);
+
+foreach ($saved_items as $item) {
+    $title = $item["title"];
+    $description = $item["afspraak"];
+    $location = $item["locatie"];
+    $date = $item["datum"];
+
+    if ($zoeken_term == "titel") {
+        if (strstr($title, $zoeken_naam )) {
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+        }
+    }
+    if ($zoeken_term == "afspraak") {
+        if (strstr($location, $zoeken_naam)) {
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+        }
+    }
+    if ($zoeken_term == "locatie") {
+        if (strstr($location, $zoeken_naam)) {
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+        }
+    }
     
 }
-
-echo "u zocht voor: $zoeken_naam";
 echo "<br>";
-echo "met de egenschaep: $zoeken_term";
 echo "<br>";
-
-    $saved_items = array_column($saved_items, 'title');
-    
-    $name_ding = array_search($zoeken_naam, $saved_items);
-    
-    echo $saved_items[$name_ding];
-    echo "<br>";
-//print_r(getcontent());
-
+echo $zoeken_term;
+echo "<br>";
+echo $zoeken_naam;
 ?>
 <?php include "php/footer.php";?>
