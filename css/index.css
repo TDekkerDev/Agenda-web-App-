@@ -229,3 +229,28 @@ tr,td {
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
+
+.saveditems{
+    
+    padding-left: 4;
+    display: flex;
+    border: 2px solid black;
+    width: 19%;
+    font-size: 120%;
+    margin: 0.1%;
+    padding-left: 0.5%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+   
+    
+    
+}
+
+#grootphp{
+    display: flex;
+    margin: 0.5%;
+    
+    flex-wrap: wrap;
+   
+
+}
