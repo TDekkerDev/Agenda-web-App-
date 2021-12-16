@@ -51,6 +51,7 @@ if (!empty($_GET)) {
 
 <?php 
 
+$dag = date('d');
 $week = date('w');
 $maand = date('m');
 $jaar= date('y');
@@ -62,20 +63,16 @@ $dagenInMaand = date("t", $timestamp);
 $dagenInWeek = date("w", $timestamp);
 $cel = 0;
 
-echo"<table>";
-echo"<tr><th>ZONDAG</th><th>MAANDAG</th><th>DINSDAG</th><th>WOENSDAG</th><th>DONDERDAG</th><th>VRIJDAG</th><th>ZATERDAG</th>";
+echo "<table>";
 
-echo"<tr>";
+echo $dag . "-" . $maand . "-" . $jaar ;
+echo "<br>";
 
-for($i=0; $i< $dag1; $i++){
-    echo'<td class="box" onclick="show()"> x </td>';
+for($i=1; $i <= 24; $i++){
+    echo '<tr><td onclick="show()">' . $i . ':00' . '</td></tr>';
     $cel++;
 }
 
-for($i=1; $i <= $dagenInWeek + 1; $i++){
-    echo '<td onclick="show()">' . $i . '</td>';
-    $cel++;
-}
+echo "</table>";
 
-echo"</table>";
 ?>
