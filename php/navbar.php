@@ -5,7 +5,7 @@
             <input id="zoeken"type="text" name="zoeken">
             <select id="zoekenkeuzen" name="zoekenkeuzen">
             <option value="titel">titel</option>
-            <option value="datum">datum</option>
+            <option value="afspraak">description</option>
             <option value="locatie">locatie</option>
             <input id=submitzoek type="submit" value="zoeken">
             </select>
