@@ -30,20 +30,23 @@ foreach ($saved_items as $item) {
     $description = $item["afspraak"];
     $location = $item["locatie"];
     $date = $item["datum"];
+    $timebg = $item["begintijd"];
+    $timeed = $item["eindtijd"];
+
 
     if ($zoeken_term == "titel") {
         if (strstr($title, $zoeken_naam )) {
-            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>" . $timebg . "<br>" . $timeed . "<br>";
         }
     }
     if ($zoeken_term == "afspraak") {
         if (strstr($location, $zoeken_naam)) {
-            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>" . $timebg . "<br>" . $timeed . "<br>";
         }
     }
     if ($zoeken_term == "locatie") {
         if (strstr($location, $zoeken_naam)) {
-            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>" . $timebg . "<br>" . $timeed . "<br>";
         }
     }
     
