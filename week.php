@@ -1,5 +1,4 @@
 <?php
-
 include "php/header.php";
 include "php/navbar.php";
 
@@ -7,7 +6,18 @@ if (!empty($_GET)) {
     $error = $_GET["error"];
     echo $error;
 }
+$saved_items=getcontent();
 
+    function getcontent(){ 
+        $file_path ="data/saved_item.json";
+            if (file_exists($file_path)){
+                $saved_items = file_get_contents($file_path);
+                $saved_items = json_decode($saved_items,true);
+            }else{
+                $saved_items = [];
+            }
+        return $saved_items;
+    }
 ?>
 
 <div id="click">
@@ -50,7 +60,7 @@ if (!empty($_GET)) {
 <div class="container_box">
 
 <?php 
-
+$dag = date('d');
 $week = date('w');
 $maand = date('m');
 $jaar= date('y');
@@ -62,19 +72,50 @@ $dagenInMaand = date("t", $timestamp);
 $dagenInWeek = date("w", $timestamp);
 $cel = 0;
 
+echo $dag . "-" . $maand . "-" . $jaar ;
+
 echo"<table>";
+
 echo"<tr><th>ZONDAG</th><th>MAANDAG</th><th>DINSDAG</th><th>WOENSDAG</th><th>DONDERDAG</th><th>VRIJDAG</th><th>ZATERDAG</th>";
 
 echo"<tr>";
 
-for($i=0; $i< $dag1; $i++){
-    echo'<td class="box" onclick="show()"> x </td>';
-    $cel++;
+function getdate2($saved_items, $datumloop) { 
+    foreach ($saved_items as $item) {
+        if ($item['datum'] == $datumloop) {
+            return true;
+        }
+    }
+    return false;
 }
 
-for($i=1; $i <= $dagenInWeek + 1; $i++){
-    echo '<td onclick="show()">' . $i . '</td>';
-    $cel++;
+function gettitel($saved_items, $datumloop) { 
+    foreach ($saved_items as $item) {
+        if ($item['datum'] == $datumloop){
+            return $item['title'];
+        }
+    }
+}
+
+$datumloopjaar = 2021;
+$datumloopmaand = 12;
+$datumloopdag = 0;    
+
+// for($i=0; $i< $dag1; $i++){
+//     echo'<td class="box" onclick="show()"> x </td>';
+//     $cel++;
+// }
+
+for($datumloopdag=13; $datumloopdag <= 19; $datumloopdag++){
+    $datumloop="$datumloopjaar-$datumloopmaand-$datumloopdag";
+    $class = "box";
+    $titelloop = "";
+    if (getdate2($saved_items, $datumloop)) {
+        $class = "box red";
+    }
+    $titel = gettitel($saved_items, $datumloop);
+    echo "<td class='$class' onclick='show()'>$datumloopdag<br>$titel</td>";
+    $cel++; 
 }
 
 echo"</table>";
