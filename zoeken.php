@@ -3,6 +3,15 @@
 <?php
 $zoeken_naam = $_POST["zoeken"];
 $zoeken_term = $_POST["zoekenkeuzen"];
+echo "<br>";
+echo "<br>";
+echo "u zocht naar: $zoeken_term";
+echo "<br>";
+echo "u zocht naar:$zoeken_naam";
+echo "<br>";
+echo "<br>";
+echo "afspraken die overeenkomen met uw zoekopdracht zijn:";
+echo "<br>";
 function load(){ 
     $file_path ="data/saved_item.json";
         if (file_exists($file_path)){
@@ -39,10 +48,6 @@ foreach ($saved_items as $item) {
     }
     
 }
-echo "<br>";
-echo "<br>";
-echo $zoeken_term;
-echo "<br>";
-echo $zoeken_naam;
+
 ?>
 <?php include "php/footer.php";?>
