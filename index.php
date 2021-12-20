@@ -7,7 +7,21 @@ if (!empty($_GET)) {
     echo $error;
 }
 
+$saved_items=getcontent();
+
+    function getcontent(){ 
+        $file_path ="data/saved_item.json";
+            if (file_exists($file_path)){
+                $saved_items = file_get_contents($file_path);
+                $saved_items = json_decode($saved_items,true);
+            }else{
+                $saved_items = [];
+            }
+        return $saved_items;
+    }
+
 ?>
+
 
 
 <div id="click">
@@ -50,7 +64,7 @@ if (!empty($_GET)) {
 <div class="container_box">
 <?php
 
-
+    $dag = date('d');
     $maand = date('m');
     $jaar= date('y');
 
@@ -58,21 +72,53 @@ if (!empty($_GET)) {
 
     $dag1= date("w", $timestamp);
     $dagenInMaand = date("t", $timestamp);
+    	$cel = 0;
+        $vandaag = "$jaar-$maand-$dag";
 
-    $cel = 0;
+        echo $dag . "-" . $maand . "-" . $jaar ;
 
     echo"<table>";
     echo"<tr><th>ZONDAG</th><th>MAANDAG</th><th>DINSDAG</th><th>WOENSDAG</th><th>DONDERDAG</th><th>VRIJDAG</th><th>ZATERDAG</th>";
 
     echo"<tr>";
 
-    for($i=0; $i< $dag1; $i++){
-        echo'<td class="box" onclick="show()"> x </td>';
+    // als een afspraak op een datum is maak dan achtergrond rood 
+
+    function getdate2($saved_items, $datumloop) { 
+        foreach ($saved_items as $item) {
+            if ($item['datum'] == $datumloop) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function gettitel($saved_items, $datumloop) { 
+        foreach ($saved_items as $item) {
+            if ($item['datum'] == $datumloop){
+                return $item['title'];
+            }
+        }
+    }
+
+    $datumloopjaar = 2021;
+    $datumloopmaand = 12;
+    $datumloopdag = 0;    
+    for($datumloopdag=0; $datumloopdag < $dag1; $datumloopdag++){
+             
+        echo"<td class='box' onclick='show()'> x </td>";
         $cel++;
     }
 
-    for($i=1; $i <= $dagenInMaand; $i++){
-        echo '<td onclick="show()">' . $i . '</td>';
+    for($datumloopdag=1; $datumloopdag <= $dagenInMaand; $datumloopdag++){
+        $datumloop="$datumloopjaar-$datumloopmaand-$datumloopdag";
+        $class = "box";
+        $titelloop = "";
+        if (getdate2($saved_items, $datumloop)) {
+            $class = "box red";
+        }
+        $titel = gettitel($saved_items, $datumloop);
+        echo "<td class='$class' onclick='show()'>$datumloopdag<br>$titel</td>";
         $cel++;
         if($cel ==7){
             echo '</tr><tr onclick="show()">';
@@ -81,6 +127,8 @@ if (!empty($_GET)) {
     }
 
     echo"</table>";
+
+
 ?>
 </div>
 
