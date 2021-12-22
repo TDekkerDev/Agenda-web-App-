@@ -3,6 +3,15 @@
 <?php
 $zoeken_naam = $_POST["zoeken"];
 $zoeken_term = $_POST["zoekenkeuzen"];
+echo "<br>";
+echo "<br>";
+echo "u zocht naar: $zoeken_term";
+echo "<br>";
+echo "u zocht naar:$zoeken_naam";
+echo "<br>";
+echo "<br>";
+echo "afspraken die overeenkomen met uw zoekopdracht zijn:";
+echo "<br>";
 function load(){ 
     $file_path ="data/saved_item.json";
         if (file_exists($file_path)){
@@ -21,28 +30,27 @@ foreach ($saved_items as $item) {
     $description = $item["afspraak"];
     $location = $item["locatie"];
     $date = $item["datum"];
+    $timebg = $item["begintijd"];
+    $timeed = $item["eindtijd"];
+
 
     if ($zoeken_term == "titel") {
         if (strstr($title, $zoeken_naam )) {
-            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>" . $timebg . "<br>" . $timeed . "<br>";
         }
     }
     if ($zoeken_term == "afspraak") {
         if (strstr($location, $zoeken_naam)) {
-            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>" . $timebg . "<br>" . $timeed . "<br>";
         }
     }
     if ($zoeken_term == "locatie") {
         if (strstr($location, $zoeken_naam)) {
-            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>";
+            echo "<br>".$title . "<br>". $description . "<br>". $location . "<br>" . $date . "<br>" . $timebg . "<br>" . $timeed . "<br>";
         }
     }
     
 }
-echo "<br>";
-echo "<br>";
-echo $zoeken_term;
-echo "<br>";
-echo $zoeken_naam;
+
 ?>
 <?php include "php/footer.php";?>

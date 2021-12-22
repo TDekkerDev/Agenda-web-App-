@@ -239,3 +239,6 @@ tr,td {
     margin: 0.5%;
     flex-wrap: wrap;
 }
+.red {
+ background-color: red;
+}
