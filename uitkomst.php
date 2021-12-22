@@ -12,9 +12,10 @@ $locatie = $_POST["locatie"];
 $date = $_POST["date"];
 $begintijd =$_POST["time-begin"];
 $eindtijd = $_POST["time-eind"];
-
 $timestamp= strtotime($date);
+
 echo"<div id='grootphp'>";
+
 function newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd){
 
     
@@ -168,8 +169,6 @@ function display(){
     echo "<br>";
     echo $eindtijd;
     echo "</div>";
-    
-    
     newafspraak($titel,$onderwerp,$locatie,$date,$begintijd,$eindtijd);
 };
 echo"</div>";

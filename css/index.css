@@ -4,7 +4,6 @@ body {
     padding: 0;
     width: 100%;
     background-color: #c7b9b9;
-
 }
 
 .navi, a, button {
@@ -34,7 +33,6 @@ main {
 
 .nav {
     list-style: none;
-
 }
 
 .nav .navi {
@@ -66,10 +64,8 @@ button:hover {
 
 .new_afspraak2 {
     display: flex;
-
     background-color: #c7b9b9;
-    border-radius: 10px;
-    
+    border-radius: 10px;   
 }
 
 .new_afspraak {
@@ -79,14 +75,11 @@ button:hover {
     align-items: center;
     height: 360px;
     border: solid 2px black;
-    
     width: 39.2%;
     position: absolute;
     top: 56.9%;
     left: 20px;
     z-index: 1;
-    
-
 }
 
 
@@ -136,7 +129,6 @@ button:hover {
 
 #balk{
     display: flex;
-
 }
 
 .dagen{
@@ -203,6 +195,7 @@ tr,td {
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
+
 #submitzoek{
     display: flex;
     justify-content: center;
@@ -231,7 +224,6 @@ tr,td {
 }
 
 .saveditems{
-    
     padding-left: 4;
     display: flex;
     border: 2px solid black;
@@ -240,17 +232,10 @@ tr,td {
     margin: 0.1%;
     padding-left: 0.5%;
     font-family:  'Arial Narrow', Arial, sans-serif;
-    
-   
-    
-    
 }
 
 #grootphp{
     display: flex;
     margin: 0.5%;
-    
     flex-wrap: wrap;
-   
-
 }
