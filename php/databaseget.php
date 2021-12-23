@@ -29,6 +29,9 @@ echo "</table>";
 } else { echo "0 results"; }
 $mysqli->close();
 
+
+
+
 ?>
-  </tbody>
+   </tbody>
 </table>

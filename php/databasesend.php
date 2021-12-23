@@ -1,27 +1,45 @@
 <?php
+$host = "localhost";
+$user = "root";
+$pass = "123456";
+$dbname = "pdoposts";
 
+// set DSN
+$dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;
 
-$mysqli = new mysqli("localhost","root","","agenda");
+// create a PDO instance
+$pdo = new PDO($dsn, $user, $pass);
 
-// Check connection
-if ($mysqli -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-  exit();
+# PRDO QUERY
+
+$stmt = $pdo->query("SELECT * FROM posts");
+
+while(){
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    echo $row['title']. '<br>';
 }
-$titel = $_POST["titel"];
-$afspraak = $_POST["afspraak"];
-$locatie = $_POST["locatie"];
-$date = $_POST["date"];
-$begintijd =$_POST["time-begin"];
-$eindtijd = $_POST["time-eind"];
-// Perform query
-if ($mysqli->query("INSERT INTO afspraken VALUES ('$titel', '$afspraak', '$locatie' , '$date', '$begintijd', '$eindtijd')") === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $mysqli->error;
-  }
-$mysqli -> close();
-
-
 
 ?> 
+
+
+
+// $mysqli = new mysqli("localhost","root","","agenda");
+
+// // Check connection
+// if ($mysqli -> connect_errno) {
+//   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+//   exit();
+// }
+// $titel = $_POST["titel"];
+// $afspraak = $_POST["afspraak"];
+// $locatie = $_POST["locatie"];
+// $date = $_POST["date"];
+// $begintijd =$_POST["time-begin"];
+// $eindtijd = $_POST["time-eind"];
+// // Perform query
+// if ($mysqli->query("INSERT INTO afspraken VALUES ('$titel', '$afspraak', '$locatie' , '$date', '$begintijd', '$eindtijd')") === TRUE) {
+//     echo "New record created successfully";
+//   } else {
+//     echo "Error: " . $mysqli->error;
+//   }
+// $mysqli -> close();
