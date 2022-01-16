@@ -8,27 +8,39 @@
 <th>time-begin</th>
 <th>time-eind</th>
 </tr>
-<?php
+
+        <?php
+                  $host = "localhost";
+                  $user = "root";
+                  $pass = "123456";
+                  $dbname = "agenda";
+
+                  // set DSN
+                  $dsn = 'mysql:host=' . $host . ';dbname=' . $dbname;
+
+                  // create a PDO instance
+                  $pdo = new PDO($dsn, $user, $pass);
+                  $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+                  # PRDO QUERY
+
+                   $stmt = $pdo->query("SELECT * FROM posts");
+
+                  while($row = $stmt->fetch()){
+                      echo "<tr>";
+                      echo "<td>".$row->title . "</td>";
+                      echo "<td>".$row->afspraak . "</td>";
+                      echo "<td>".$row->locatie . "</td>";
+                      echo "<td>".$row->datum . "</td>";
+                      echo "<td>".$row->begintijd . "</td>";
+                      echo "<td>".$row->eindtijd . "</td>";
+                      echo "</tr>";
+                  }
+
+                
 
 
-$mysqli = new mysqli("localhost","root","","agenda");
+        ?>
+    
 
-// Check connection
-if ($mysqli -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-  exit();
-}
-$sql = "SELECT `titel`, `afspraak`, `locatie`, `date`, `time-begin`, `time-eind` FROM afspraken";
-$result = $mysqli->query($sql);
-if ($result->num_rows > 0) {
-// output data of each row
-while($row = $result->fetch_assoc()) {
-echo "<tr><td>" . $row["titel"]. "</td><td>" . $row["afspraak"] . "</td><td>" . $row["afspraak"] . "</td><td>" . $row["date"] . "</td><td>" . $row["time-begin"] . "</td><td>" . $row["time-eind"] . "</td></tr>";
-}
-echo "</table>";
-} else { echo "0 results"; }
-$mysqli->close();
-
-?>
-  </tbody>
+   </tbody>
 </table>
