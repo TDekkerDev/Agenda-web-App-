@@ -12,7 +12,7 @@
         <?php
                   $host = "localhost";
                   $user = "root";
-                  $pass = "123456";
+                  $pass = "";
                   $dbname = "agenda";
 
                   // set DSN
