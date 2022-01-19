@@ -101,8 +101,8 @@ $saved_items=getcontent();
         }
     }
 
-    $datumloopjaar = 2021;
-    $datumloopmaand = 12;
+    $datumloopjaar = $jaar;
+    $datumloopmaand = $maand;
     $datumloopdag = 0;    
     for($datumloopdag=0; $datumloopdag < $dag1; $datumloopdag++){
              
