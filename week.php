@@ -63,7 +63,7 @@ $saved_items=getcontent();
 $dag = date('d');
 $week = date('w');
 $maand = date('m');
-$jaar= date('y');
+$jaar= date('Y');
 $dag_letter= date('l');
 
 $eerste_dag = $dag - $week;
@@ -101,7 +101,7 @@ function gettitel($saved_items, $datumloop) {
 }
 
 $datumloopjaar = $jaar;
-$datumloopmaand = $maand;
+$datumloopmaand = "$maand";
 $datumloopdag = 0;    
 
 // for($i=0; $i< $dag1; $i++){

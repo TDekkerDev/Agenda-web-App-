@@ -54,7 +54,7 @@ if (!empty($_GET)) {
 $dag = date('d');
 $week = date('w');
 $maand = date('m');
-$jaar= date('y');
+$jaar= date('Y');
 
 $timestamp = mktime(0,0,0,$maand,1,$jaar);
 

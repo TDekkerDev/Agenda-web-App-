@@ -66,7 +66,7 @@ $saved_items=getcontent();
 
     $dag = date('d');
     $maand = date('m');
-    $jaar= date('y');
+    $jaar = date('Y');
 
     $timestamp = mktime(0,0,0,$maand,1,$jaar);
 
@@ -101,8 +101,8 @@ $saved_items=getcontent();
         }
     }
 
-    $datumloopjaar = $jaar;
-    $datumloopmaand = $maand;
+    $datumloopjaar = "$jaar";
+    $datumloopmaand = "$maand";
     $datumloopdag = 0;    
     for($datumloopdag=0; $datumloopdag < $dag1; $datumloopdag++){
              
