@@ -64,6 +64,9 @@ $dag = date('d');
 $week = date('w');
 $maand = date('m');
 $jaar= date('y');
+$dag_letter= date('l');
+
+$eerste_dag = $dag - $week;
 
 $timestamp = mktime(0,0,0,$maand,1,$jaar);
 
@@ -97,16 +100,15 @@ function gettitel($saved_items, $datumloop) {
     }
 }
 
-$datumloopjaar = 2021;
-$datumloopmaand = 12;
+$datumloopjaar = $jaar;
+$datumloopmaand = $maand;
 $datumloopdag = 0;    
 
 // for($i=0; $i< $dag1; $i++){
 //     echo'<td class="box" onclick="show()"> x </td>';
 //     $cel++;
 // }
-
-for($datumloopdag=13; $datumloopdag <= 19; $datumloopdag++){
+for($datumloopdag=$eerste_dag; $datumloopdag <= $eerste_dag+6; $datumloopdag++){
     $datumloop="$datumloopjaar-$datumloopmaand-$datumloopdag";
     $class = "box";
     $titelloop = "";
@@ -118,5 +120,7 @@ for($datumloopdag=13; $datumloopdag <= 19; $datumloopdag++){
     $cel++; 
 }
 
+
 echo"</table>";
+
 ?>
