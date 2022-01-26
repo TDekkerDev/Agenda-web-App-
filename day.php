@@ -36,12 +36,28 @@ function gethours($saved_items, $UrenVandaag) {
     }
 }
 
-function getItem($saved_items, $vandaag) {
+/*function getItem($saved_items, $vandaag) {
     foreach ($saved_items as $item) {
         if ($item['datum'] == $vandaag) {
             return $item;
         }
     }
+
+    return false;
+}*/
+
+
+
+function getItem($saved_items, $vandaag){
+    $items=[];
+    foreach($saved_items as $item){
+        if($item['datum']==$vandaag){
+            $items[]=$item;
+
+        }
+
+    }
+    return $items;
 }
 
 function gettitel($saved_items, $vandaag) { 
@@ -51,6 +67,8 @@ function gettitel($saved_items, $vandaag) {
         }
     }
 }
+
+
 
 
 ?>
@@ -122,17 +140,29 @@ echo "<br>";
 //     $cel++;
 // }
 
-$item = getItem($saved_items, $vandaag);
+$items = getItem($saved_items, $vandaag);
 
-$start = substr ($item['begintijd'], 0.2);
-$eind = substr ($item['eindtijd'], 0.2);
+
 
 for($UrenVandaag=1; $UrenVandaag <= 24; $UrenVandaag++){
     $class = "box";
-    if (gethours($saved_items, $vandaag)) {
-        $class = "box red";
+    foreach($items as $item){
+        $splitTimeStampb = explode(":",$item['begintijd']);
+        $dateb = $splitTimeStampb[0];
+        $timeb = $splitTimeStampb[1];
+        $splitTimeStampe = explode(":",$item['eindtijd']);
+        $datee = $splitTimeStampe[0];
+        $timee = $splitTimeStampe[1];
+
+        if($UrenVandaag==$splitTimeStampe[0]){
+            $class = "box red";
+        }    
+        if($UrenVandaag==$splitTimeStampb[0]){
+            $class = "box red";
+        }
+        echo"<td class='$class' onclick='show()'>$UrenVandaag:00<br>" . "</td>";
     }
-    echo "<td class='$class' onclick='show()'>$UrenVandaag:00<br>" . "</td>";
+    
 }
 
 
