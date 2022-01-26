@@ -8,6 +8,51 @@ if (!empty($_GET)) {
     echo $error;
 }
 
+$saved_items=getcontent();
+
+    function getcontent(){ 
+        $file_path ="data/saved_item.json";
+            if (file_exists($file_path)){
+                $saved_items = file_get_contents($file_path);
+                $saved_items = json_decode($saved_items,true);
+            }else{
+                $saved_items = [];
+            }
+        return $saved_items;
+    }
+
+function getdate2($saved_items, $vandaag) { 
+    foreach ($saved_items as $item) {
+        if ($item['datum'] == $vandaag) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function gethours($saved_items, $UrenVandaag) {
+    foreach ($saved_items as $item) {
+        if ($item['begintijd'] == $UrenVandaag) ;
+    }
+}
+
+function getItem($saved_items, $vandaag) {
+    foreach ($saved_items as $item) {
+        if ($item['datum'] == $vandaag) {
+            return $item;
+        }
+    }
+}
+
+function gettitel($saved_items, $vandaag) { 
+    foreach ($saved_items as $item) {
+        if ($item['datum'] == $vandaag){
+            return $item['title'];
+        }
+    }
+}
+
+
 ?>
 
 <div id="click">
@@ -55,7 +100,7 @@ $dag = date('d');
 $week = date('w');
 $maand = date('m');
 $jaar= date('Y');
-
+$vandaag= "$jaar-$maand-$dag";
 $timestamp = mktime(0,0,0,$maand,1,$jaar);
 
 $dag1= date("w", $timestamp);
@@ -63,15 +108,33 @@ $dagenInMaand = date("t", $timestamp);
 $dagenInWeek = date("w", $timestamp);
 $cel = 0;
 
+$datumloopjaar = "$jaar";
+$datumloopmaand = "$maand";
+$datumloopdag = 0; 
+
 echo "<table>";
 
 echo $dag . "-" . $maand . "-" . $jaar ;
 echo "<br>";
 
-for($i=1; $i <= 24; $i++){
-    echo '<tr><td onclick="show()">' . $i . ':00' . '</td></tr>';
-    $cel++;
+// for($i=1; $i <= 24; $i++){
+//     echo '<tr><td onclick="show()">' . $i . ':00' . '</td></tr>';
+//     $cel++;
+// }
+
+$item = getItem($saved_items, $vandaag);
+
+$start = substr ($item['begintijd'], 0.2);
+$eind = substr ($item['eindtijd'], 0.2);
+
+for($UrenVandaag=1; $UrenVandaag <= 24; $UrenVandaag++){
+    $class = "box";
+    if (gethours($saved_items, $vandaag)) {
+        $class = "box red";
+    }
+    echo "<td class='$class' onclick='show()'>$UrenVandaag:00<br>" . "</td>";
 }
+
 
 echo "</table>";
 
